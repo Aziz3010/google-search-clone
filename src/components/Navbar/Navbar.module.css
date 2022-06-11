@@ -1,0 +1,151 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: .5rem 5rem;
+    user-select: none;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.logo_types {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.logo_icon_box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+.logo {
+    background-color: #f1f1f1;
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.logo a {
+    color: #222;
+}
+
+.types {
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logo_types ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.logo_types ul li a {
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    height: 30px;
+    width: 80px;
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.search_dark {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.search_input {
+    margin-right: 15px;
+    height: 30px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 0 10px;
+    font-size: 16px;
+    background-color: #f1f1f1;
+}
+
+.dark_mood {
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 844px) {
+    .logo_types {
+        margin-bottom: 10px;
+    }    
+}
+
+@media screen and (max-width: 580px) {
+    .nav {
+        padding: 1.5rem 1rem;
+    }
+
+    .logo_types {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .logo_icon_box {
+        width: 100%;
+    }
+
+    .logo {
+        margin-right: 0px;
+    }
+    
+    .logo_types ul {
+        width: 100%;
+        margin-top: 10px;
+        justify-content: space-between;
+    }
+
+    .logo_types ul li a {
+        margin-left: 0px;
+    }
+    
+    .search_dark {
+        justify-content: space-between;
+        width: 100%;
+    }
+    
+    .search_input {
+        margin-right: 15px;
+        margin-top: 10px;
+    }
+    
+    .dark_mood {
+        margin-top: 10px;
+    }
+}

@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import Content from './components/Content/Content';
+import Navbar from './components/Navbar/Navbar';
+import { useLocation } from 'react-router-dom';
+import getDataFromApi from './Api.js';
 
 function App() {
+
+  const [data, setData] = useState([]);
+  const [searchKeyState, setSearchKeyState] = useState('egypt');
+  const [isLoading, setIsLoading] = useState(false);
+
+  // call getDataFromApi func to get all data from api
+  let getData = async (searchKey) => {
+    const allDataJS = await getDataFromApi(searchKey);
+    setData(allDataJS);
+    setIsLoading(false);
+  }
+  
+  let {pathname} = useLocation();
+  
+  
+  useEffect(()=>{
+      setIsLoading(true);
+      getData(searchKeyState);
+  },[searchKeyState, pathname])
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Navbar searchKeyState={searchKeyState} setSearchKeyState={setSearchKeyState} />
+      <Content isLoading={isLoading} data={data} />
+    </>
+  )
 }
 
-export default App;
+export default App

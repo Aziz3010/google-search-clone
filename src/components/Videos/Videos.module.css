@@ -1,0 +1,29 @@
+.videos {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.item {
+    width: calc((100% / 3) - 15px);
+    height: 160px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+
+/* Media Query */
+@media screen and (max-width: 767px) {
+    .item {
+        width: calc((100% / 2) - 15px);
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .item {
+        width: 100%;
+    }
+}
