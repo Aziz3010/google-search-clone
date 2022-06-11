@@ -3,6 +3,7 @@ import Content from './components/Content/Content';
 import Navbar from './components/Navbar/Navbar';
 import { useLocation } from 'react-router-dom';
 import getDataFromApi from './Api.js';
+import './App.css';
 
 function App() {
 
@@ -26,11 +27,23 @@ function App() {
   },[searchKeyState, pathname])
 
 
+  const [isDark, setIsDark] = useState(false);
+
+  const darkStyle = {
+    "--bg": "#0e204c",
+    "--f1f1f1": "#6689d2",
+    "--222": "#fff",
+    "--f1f1f170": "#ffffff3b",
+    "--1a0dab": "#fff",
+    "--202124": "#c6c6c6",
+    "--dark": "#f1f1f1",
+    };
+
   return (
-    <>
-      <Navbar searchKeyState={searchKeyState} setSearchKeyState={setSearchKeyState} />
+    <div style={ isDark === true ? darkStyle : null }>
+      <Navbar searchKeyState={searchKeyState} setIsDark={setIsDark} isDark={isDark} setSearchKeyState={setSearchKeyState} />
       <Content isLoading={isLoading} data={data} />
-    </>
+    </div>
   )
 }
 

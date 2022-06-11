@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import St from './Navbar.module.css';
 import { Link } from 'react-router-dom';
 
-function Navbar( {searchKeyState, setSearchKeyState} ) {
+function Navbar( {searchKeyState, setSearchKeyState, setIsDark ,isDark} ) {
     const [darkMode, setDarkMode] = useState(false);
     const [navMenu, setNavMenu] = useState(false);
 
@@ -34,7 +34,14 @@ function Navbar( {searchKeyState, setSearchKeyState} ) {
 
             <div className={St.search_dark}>
                 <input className={St.search_input} value={searchKeyState} onChange={(e)=>{setSearchKeyState(e.target.value)}} placeholder="Search..." type="search" name="searchInput" />
-                <div className={St.dark_mood} onClick={()=>setDarkMode(!darkMode)}>
+                <div className={St.dark_mood} 
+                    onClick={
+                        ()=> {
+                        setDarkMode(!darkMode);
+                        setIsDark(!isDark);
+                        }
+                    }
+                >
                     { darkMode ? "🌞" : "🌙" }
                 </div>
             </div>
